@@ -14,4 +14,7 @@ class User < ApplicationRecord
   # Allows association to view list of users who follow a given user i.e. user.followings
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :followings, through: :follower_relationships, source: :following
+
+  has_many :recommendations
+  has_many :recommended_books, through: :recommendations, foreign_key: "book_id", class_name: 'Book'
 end
