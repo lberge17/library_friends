@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :libraries
-  has_many :users, through: :libraries
+  has_many :books, through: :libraries
   
   has_many :follows
   # Allows association to view list of users who follow a given user i.e. user.followers
@@ -16,5 +16,5 @@ class User < ApplicationRecord
   has_many :followings, through: :follower_relationships, source: :following
 
   has_many :recommendations
-  has_many :recommended_books, through: :recommendations, foreign_key: "book_id", class_name: 'Book'
+  has_many :recommended_books, through: :recommendations, source: :book
 end
