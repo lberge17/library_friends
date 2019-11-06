@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Helps create user authentication
 gem 'devise'
-gem 'omniauth'
 gem 'omniauth-facebook'
 
 group :development, :test do
