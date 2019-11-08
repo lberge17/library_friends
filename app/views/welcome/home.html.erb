@@ -1,3 +1,7 @@
 <h1>Welcome to Library Friends</h1>
-<%= link_to 'Check out your page.', user_path(current_user) %>
+
+<%= link_to 'Check out your page.', user_path(@user) %>
+<%= link_to 'View your library.', library_path(@user.library) %>
+<%= link_to 'View your follow feed', follows_path %>
+
 <%= render 'layouts/log' %>

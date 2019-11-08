@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :books
 
+  resources :libraries, only: [:index, :new, :create, :destroy]
+
   resources :users, only: [:show] do
     resources :recommendations
   end
