@@ -1,0 +1,7 @@
+<%= form_for @recommendation do |f| %>
+    <%= f.label :comment %><br>
+    <%= f.textarea :comment %><br>
+    <%= f.label :book_id %>
+    <%= f.number_field :book_id %>
+    <%= f.submit %>
+<% end %>

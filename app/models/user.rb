@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   
+  validates :name, presence: true
+  
   has_many :libraries
   has_many :books, through: :libraries
   
