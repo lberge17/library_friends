@@ -1,0 +1,5 @@
+<h1><%= @user.name %>'s Profile</h1>
+<p>Email: <%= @user.email %></p>
+<%= @user.image %>
+
+<%= link_to 'View this user\'s current recommendations', user_recommendations_path(@user) %>

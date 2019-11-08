@@ -10,16 +10,19 @@ class RecommendationsController < ApplicationController
     end
 
     def new
-        redirect_to new_user_recommandation_path(current_user) if @user != current_user
         @recommendation = Recommendation.new
+        redirect_to new_user_recommandation_path(current_user) if @user != current_user
     end
 
     def create
     end
 
     def edit
-        redirect_to user_recommendations_path(@user) if !@recommendation
-        redirect_to user_recommendation_path(@user, @recommendation) if current_user != @user
+        if !@recommendation
+            redirect_to user_recommendations_path(@user)
+        elsif current_user != @user
+            redirect_to user_recommendation_path(@user, @recommendation)
+        end
     end
     
     def update
@@ -31,7 +34,7 @@ class RecommendationsController < ApplicationController
     private
 
     def set_user
-        @user = User.find(:user_id)
+        @user = User.find(params[:user_id])
     end
 
     def set_recommendation
