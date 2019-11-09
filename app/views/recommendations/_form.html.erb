@@ -1,8 +1,7 @@
 <%= form_for [@user, @recommendation] do |f| %>
     <%= f.label :comment %><br>
     <%= f.text_area :comment %><br>
-    <%= f.label :book_id %>
-    <!-- This is going to change to a select field from the users library -->
-    <%= f.number_field :book_id %>
+    <%= f.label :book_id %><br>
+    <%= f.select :book_id, @books.collect { |b| [ b.title, b.id ] } %><br><br>
     <%= f.submit %>
 <% end %>

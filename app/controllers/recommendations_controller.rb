@@ -11,20 +11,22 @@ class RecommendationsController < ApplicationController
 
     def new
         @recommendation = Recommendation.new
+        @books = Book.all
         redirect_to new_user_recommandation_path(current_user) if @user != current_user
     end
 
     def create
-        if @user == current_user
-            @recommendation.create(recommendation_params)
+        if @user == current_user && !@user.recommended_books.include?(Book.find_by(id: recommendation_params[:book_id]))
+            @recommendation = Recommendation.create(recommendation_params)
             @recommendation.user = current_user
-            @recommendation_params.save
+            @recommendation.save
         end
 
-        redirect_to recommendations_path(current_user)
+        redirect_to user_recommendations_path(current_user)
     end
 
     def edit
+        @books = Book.all
         if !@recommendation
             redirect_to user_recommendations_path(@user)
         elsif current_user != @user
