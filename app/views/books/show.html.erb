@@ -1,2 +1,4 @@
 <h3>Title: <%= @book.title %></h3>
 <p>by: <%= @book.author %></p>
+<br>
+<%= button_to "Add This Book To Your Library", {controller: "libraries", action: "create", :book_id => @book.id} %>

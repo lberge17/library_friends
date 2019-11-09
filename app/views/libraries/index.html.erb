@@ -1,8 +1,8 @@
 <h1>Your Library</h1>
 
 <ul>
-    <% @user.books.each do |book| %>
-        <li><%= "#{book.title} by #{book.author}" %></li>
+    <% @user.libraries.each do |library| %>
+        <li><%= "#{library.book.title} by #{library.book.author}" %> <%= button_to('X', library_path(library), method: "delete") %></li>
     <% end %>
 </ul>
 

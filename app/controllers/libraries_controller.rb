@@ -9,14 +9,14 @@ class LibrariesController < ApplicationController
     end
 
     def create
-        @user.libraries.build(book_id: params[:library][:book_id])
+        @user.libraries.build(book_id: params[:book_id])
         @user.save
         redirect_to libraries_path
     end
 
     def destroy
         library = Library.find(params[:id])
-        if library.user = current_user
+        if library.user == current_user
             library.destroy
         end
         redirect_to libraries_path
