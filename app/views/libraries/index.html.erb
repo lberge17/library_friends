@@ -1,0 +1,9 @@
+<h1>Your Library</h1>
+
+<ul>
+    <% @user.books.each do |book| %>
+        <li><%= "#{book.title} by #{book.author}" %></li>
+    <% end %>
+</ul>
+
+<%= link_to 'Add a new book to your library', new_library_path %>

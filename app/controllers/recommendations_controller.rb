@@ -15,6 +15,13 @@ class RecommendationsController < ApplicationController
     end
 
     def create
+        if @user == current_user
+            @recommendation.create(recommendation_params)
+            @recommendation.user = current_user
+            @recommendation_params.save
+        end
+
+        redirect_to recommendations_path(current_user)
     end
 
     def edit
@@ -42,7 +49,7 @@ class RecommendationsController < ApplicationController
     end
 
     def recommendation_params
-        params.require(:recommendation).permit(:comment, :user_id, :book_id)
+        params.require(:recommendation).permit(:comment, :book_id)
     end
 
 end
