@@ -6,10 +6,12 @@ class LibrariesController < ApplicationController
 
     def new
         @library = Library.new
+        @library.book = Book.new
+        @books = Book.all
     end
 
     def create
-        @user.libraries.build(book_id: params[:book_id])
+        @user.libraries.build(library_params)
         @user.save
         redirect_to libraries_path
     end
@@ -26,5 +28,9 @@ class LibrariesController < ApplicationController
 
     def set_user
         @user = current_user
+    end
+
+    def library_params
+        params.require(:library).permit(:book_id, book_attributes: [:title, :author, :id])
     end
 end

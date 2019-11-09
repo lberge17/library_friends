@@ -1,5 +1,19 @@
 <%= form_for @library do |f| %>
-    <%= f.label :book_id %>
-    <%= f.number_field :book_id %>
+    <%= f.fields_for :book do |book_form| %>
+        <%= book_form.label :title, "Title" %>:
+        <%= book_form.text_field :title, list: 'title' %>
+        <datalist id="title">
+            <% @books.each do |book| %>
+                <option value="<%= book.title %>"></option>
+            <% end %>
+        </datalist>
+        <%= book_form.label :author, "Author" %>:
+        <%= book_form.text_field :author, list: 'author' %>
+        <datalist id="author">
+            <% @books.each do |book| %>
+                <option value="<%= book.author %>"></option>
+            <% end %>
+        </datalist>
+    <% end %>
     <%= f.submit %>
 <% end %>

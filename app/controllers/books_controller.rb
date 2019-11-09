@@ -13,7 +13,14 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.create(book_params)
+        byebug
+        # Check if that book title is in the database.
+        if existing_titles = Book.where(title: params[:book][:title])
+            # Check if any of the matching titles already has that author assigned since 2 different books can have the same title.
+            @book = existing_titles.where(author: params[:book][:author])
+        else
+            @book = Book.create(book_params)
+        end
         redirect_to book_path(@book)
     end
 
