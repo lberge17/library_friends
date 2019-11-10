@@ -11,8 +11,8 @@ class LibrariesController < ApplicationController
     end
 
     def create
-        @book = Book.find_or_create_by(book_params)
-        @user.books << @book
+        @book = Book.find_or_create_by(params[:book_id] || book_params)
+        @user.books << @book if !@user.books.include?(@book)
         @user.save
         redirect_to libraries_path
     end
