@@ -37,4 +37,23 @@ class User < ApplicationRecord
       user.image = auth.info.image
     end
   end
+
+  def user_search(attribute, query)
+    case attribute
+    when "name"
+      name_search(query).order("name")
+    when "email"
+      name_search(query).order("email")
+    else
+      "Invalid attribute entered. Please enter 'email' or 'name'."
+    end
+  end
+
+  def name_search(query)
+    User.where("name LIKE ?", "%#{query}%")
+  end
+
+  def email_search(query)
+    User.where("email LIKE ?", "%#{query}%")
+  end
 end

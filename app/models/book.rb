@@ -5,7 +5,7 @@ class Book < ApplicationRecord
     has_many :recommendations
     has_many :user_recommends, through: :recommendations, source: :user
 
-    def search(attribute, query)
+    def book_search(attribute, query)
         case attribute
         when "author"
             author_search(query).order("author")
