@@ -12,7 +12,7 @@ class LibrariesController < ApplicationController
 
     def create
         # library_params comes through from the book show page and book_params comes through from the library new page
-        @book = Book.find_or_create_by(library_params || book_params)
+        @book = Book.find_or_create_by(library_params.empty? ? book_params : library_params)
         @user.books << @book if !@user.books.include?(@book)
         @user.save
         redirect_to libraries_path

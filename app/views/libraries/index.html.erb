@@ -1,9 +1,12 @@
 <h1>Your Library</h1>
+<small>To remove an item, click the red x next to the book.</small>
 
-<ul>
-    <% @user.libraries.each do |library| %>
-        <li><%= "#{library.book.title} by #{library.book.author}" %> <%= button_to('X', library_path(library), method: "delete") %></li>
-    <% end %>
-</ul>
+<div class="container text-left">
+    <ul>
+        <% @user.libraries.each do |library| %>
+            <%= "#{library.book.title} by #{library.book.author}"%> <%= link_to('X', library_path(library), method: "delete", class: "text-danger")%><br>
+        <% end %>
+    </ul>
+</div>
 
 <%= link_to 'Add a new book to your library', new_library_path %>
