@@ -11,6 +11,8 @@ class Book < ApplicationRecord
             author_search(query).order("author")
         when "title"
             title_search(query).order("title")
+        else
+            "Invalid attribute entered. Please enter 'title' or 'author'."
         end
     end
 
