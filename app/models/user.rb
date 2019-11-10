@@ -38,22 +38,7 @@ class User < ApplicationRecord
     end
   end
 
-  def user_search(attribute, query)
-    case attribute
-    when "name"
-      name_search(query).order("name")
-    when "email"
-      name_search(query).order("email")
-    else
-      "Invalid attribute entered. Please enter 'email' or 'name'."
-    end
-  end
-
-  def name_search(query)
-    User.where("name LIKE ?", "%#{query}%")
-  end
-
-  def email_search(query)
-    User.where("email LIKE ?", "%#{query}%")
+  def search(name: nil, email: nil)
+    User.where("name LIKE ? AND email LIKE ?", "%#{name}%", "%#{email}%").order("name")
   end
 end
