@@ -5,22 +5,7 @@ class Book < ApplicationRecord
     has_many :recommendations
     has_many :user_recommends, through: :recommendations, source: :user
 
-    def book_search(attribute, query)
-        case attribute
-        when "author"
-            author_search(query).order("author")
-        when "title"
-            title_search(query).order("title")
-        else
-            "Invalid attribute entered. Please enter 'title' or 'author'."
-        end
-    end
-
-    def author_search(query)
-        Book.where("author LIKE ?", "%#{query}%")
-    end
-
-    def title_search(query)
-        Book.where("title LIKE ?", "%#{query}%")
+    def book_search(author: nil, title: nil)
+        Book.where("author LIKE ? AND title LIKE ?", "%#{author}%", "%#{title}%")
     end
 end
