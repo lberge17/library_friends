@@ -25,9 +25,12 @@
         </div>
       </li>
     </ul>
-    <%= form_tag(books_path, class: "form-inline my-2 my-lg-0") do %>
-      <%= text_field_tag :title, "Search for a book", class: "form-control mr-sm-2" %>
-      <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% if user_signed_in? %>
+      <%= form_tag(books_path, class: "form-inline my-2 my-lg-0", method: :get) do %>
+        <%= text_field_tag :title, "book search by title", class: "form-control mr-sm-2" %>
+        <%= text_field_tag :author, "by author", class: "form-control mr-sm-2" %>
+        <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
     <% end %>
   </div>
 </nav>
