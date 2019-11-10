@@ -11,8 +11,8 @@ class LibrariesController < ApplicationController
     end
 
     def create
-        # library_params comes through from the book show page and book_params comes through from the library new page
-        @book = Book.find_or_create_by(library_params.empty? ? book_params : library_params)
+        # book_id comes through from the book show page and book_params comes through from the library new page
+        @book = Book.find_or_create_by(params[:book_id] ? params[:book_id] : book_params)
         @user.books << @book if !@user.books.include?(@book)
         @user.save
         redirect_to libraries_path
@@ -30,10 +30,6 @@ class LibrariesController < ApplicationController
 
     def set_user
         @user = current_user
-    end
-
-    def library_params
-        params.require(:library).permit(:book_id)
     end
 
     def book_params

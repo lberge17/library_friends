@@ -1,7 +1,9 @@
 <h1><%= @user.name %>'s Recommendations:</h1>
 <div class="text-left">
-    <% @recommendations.each do |rec| %>
-        <h6><%= "#{rec.book.title} by #{rec.book.author}" %> <%= link_to('X', user_recommendation_path(@user, rec), method: "delete", class: "text-danger") if @user == current_user %></h6>
-        <p><%= rec.comment %></p>
-    <% end %>
+    <ol>
+        <% @recommendations.each do |rec| %>
+            <li><%= "#{rec.book.title} by #{rec.book.author}" %> <%= link_to('X', user_recommendation_path(@user, rec), method: "delete", class: "text-danger") if @user == current_user %></li>
+            <p><%= rec.comment %></p>
+        <% end %>
+    </ol>
 </div>
