@@ -16,12 +16,12 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu
         </a>
-        <div class="dropdown-menu <%= 'disabled' if !user_signed_in? %>" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item <%= 'disabled' if !user_signed_in? %>" href=<%= user_recommendations_path(current_user)%>>Your Recommendations</a>
-          <a class="dropdown-item <%= 'disabled' if !user_signed_in? %>" href=<%= new_user_recommendation_path(current_user)%>>Write new Recommendation</a>
-          <a class="dropdown-item <%= 'disabled' if !user_signed_in? %>" href=<%= user_path(current_user)%>>Your Profile</a> 
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href=<%= user_signed_in? ? user_recommendations_path(current_user) : '#' %>>Your Recommendations</a>
+          <a class="dropdown-item" href=<%= user_signed_in? ? new_user_recommendation_path(current_user) : '#' %>>Write new Recommendation</a>
+          <a class="dropdown-item" href=<%= user_signed_in? ? user_path(current_user) : '#'%>>Your Profile</a> 
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item <%= 'disabled' if !user_signed_in? %>" href="/books">All Books</a>
+          <a class="dropdown-item" href="/books">All Books</a>
         </div>
       </li>
     </ul>

@@ -1,5 +1,7 @@
 <h1><%= @user.name %>'s Recommendations:</h1>
-<% @recommendations.each do |rec| %>
-    <h3><%= "#{rec.book.title} by #{rec.book.author}" %></h3>
-    <p><%= rec.comment %></p>
-<% end %>
+<div class="text-left">
+    <% @recommendations.each do |rec| %>
+        <h6><%= "#{rec.book.title} by #{rec.book.author}" %> <%= link_to('X', user_recommendation_path(@user, rec), method: "delete", class: "text-danger") if @user == current_user %></h6>
+        <p><%= rec.comment %></p>
+    <% end %>
+</div>

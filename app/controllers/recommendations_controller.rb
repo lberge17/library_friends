@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
     before_action :set_user
+    before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
 
     def index   
         @recommendations = @user.recommendations
@@ -38,6 +39,8 @@ class RecommendationsController < ApplicationController
     end
 
     def destroy
+        @recommendation.destroy if @user == current_user
+        redirect_to user_recommendation_path(@user)
     end
 
     private
