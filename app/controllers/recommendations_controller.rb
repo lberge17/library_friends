@@ -11,7 +11,7 @@ class RecommendationsController < ApplicationController
 
     def new
         @recommendation = Recommendation.new
-        @books = Book.all
+        @books = current_user.alpha_books
         redirect_to new_user_recommandation_path(current_user) if @user != current_user
     end
 

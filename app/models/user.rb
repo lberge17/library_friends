@@ -41,4 +41,8 @@ class User < ApplicationRecord
   def self.search(name: nil, email: nil)
     User.where("name LIKE ? AND email LIKE ?", "%#{name}%", "%#{email}%").order("name")
   end
+
+  def alpha_books
+    books.order("title")
+  end
 end
