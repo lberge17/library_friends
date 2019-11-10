@@ -11,6 +11,7 @@ class LibrariesController < ApplicationController
     end
 
     def create
+        # params[:book_id] comes through from the book show page and book_params comes through from the library new page
         @book = Book.find_or_create_by(params[:book_id] || book_params)
         @user.books << @book if !@user.books.include?(@book)
         @user.save
