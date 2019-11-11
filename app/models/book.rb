@@ -1,4 +1,7 @@
 class Book < ApplicationRecord
+    validates :author, presence: true, length: { maximum: 150}
+    validates :title, presence: true, length: { maximum: 255}, uniqueness: { scope: [:author], message: 'is already in the database for this author' }
+
     has_many :libraries
     has_many :users, through: :libraries
 

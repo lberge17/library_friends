@@ -1,4 +1,5 @@
 class Library < ApplicationRecord
+    validates_associated :books
     belongs_to :user
     belongs_to :book
 
