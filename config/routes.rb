@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :libraries, only: [:index, :new, :create, :destroy]
 
-  resources :follows, only: [:index]
+  resources :follows, only: [:index, :create, :destroy]
 
   resources :users, only: [:show] do
     resources :recommendations

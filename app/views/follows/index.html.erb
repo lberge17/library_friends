@@ -1,1 +1,15 @@
 <h1>Your Follows Feed</h1>
+
+<div class="text-left">
+    <ul>
+        <% @user.following.each do |user| %>
+            <li><%= link_to user.name, user_path(user) %></li>
+                <ol>
+                    <% user.recommendations.each do |rec| %>
+                        <li><%= "#{rec.book.title} + #{rec.book.author}" %></li>
+                        <p><%= rec.comment %></p>
+                    <% end %>
+                </ol>
+        <% end %>
+    </ul>
+</div>
