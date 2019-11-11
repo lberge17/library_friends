@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show]
 
   resources :libraries, only: [:index, :new, :create, :destroy]
+  get '/libraries/popular_books', to: 'libraries#popular_books'
 
   resources :follows, only: [:index, :create, :destroy]
 

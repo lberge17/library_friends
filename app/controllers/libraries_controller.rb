@@ -31,6 +31,11 @@ class LibrariesController < ApplicationController
         redirect_to libraries_path
     end
 
+    def popular_books
+        # 5 most popular books in user libraries
+        @books = Library.popular_books
+    end
+
     private
 
     def set_user

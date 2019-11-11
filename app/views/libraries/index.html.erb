@@ -4,7 +4,7 @@
 <div class="container text-left">
     <ul>
         <% @user.libraries.each do |library| %>
-            <li><%= "#{library.book.title} by #{library.book.author}"%> <%= link_to('X', library_path(library), method: "delete", class: "text-danger")%></li><br>
+            <li><%= library.book.title_by_author %> <%= link_to('X', library_path(library), method: "delete", class: "text-danger")%></li><br>
         <% end %>
     </ul>
 </div>
