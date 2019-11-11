@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
 
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show, :new, :create]
 
   resources :libraries, only: [:index, :new, :create, :destroy]
   get '/libraries/popular_books', to: 'libraries#popular_books'

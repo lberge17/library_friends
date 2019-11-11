@@ -13,10 +13,11 @@
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 - This is fulfilled through the Recommendation join model that includes a comment attribute.
 
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- I have various validations for my models (aside from the ones already provided with devise). The main ones are in my book model that contains a validations for title and author on presence, length, and uniqueness of the combination of both (since some books have the same title but different authors and authors have multiple books).
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-- The libraries model has a popular_books function and URL that returns the 5 most popular books in user libraries.
+- The libraries model has a popular_books scope method and URL that returns the 5 most popular books in user libraries.
 
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
