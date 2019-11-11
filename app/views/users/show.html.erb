@@ -3,6 +3,8 @@
 <% if @user.image %>
     <img src=<%= @user.image %> alt="user profile picture">
 <% end %>
+<p>Followers: <%= @user.follower_count %></p>
+<p>Following: <%= @user.following_count %></p>
 
 <br>
 

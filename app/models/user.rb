@@ -47,4 +47,12 @@ class User < ApplicationRecord
   def alpha_books
     books.order("title")
   end
+
+  def follower_count
+    followers.count
+  end
+
+  def following_count
+    following.count
+  end
 end
