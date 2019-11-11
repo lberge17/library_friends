@@ -10,10 +10,13 @@
         <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link <%= 'disabled' if !user_signed_in? %>" href="/libraries">Your Library</a>
+        <%= link_to 'Your Library', libraries_path, class: "nav-link #{'disabled' if !user_signed_in?}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Follows Feed', follows_path, class: "nav-link #{'disabled' if !user_signed_in?}" %>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle <%= 'disabled' if !user_signed_in? %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -27,7 +30,8 @@
           
           <%= link_to 'Your Profile', (user_signed_in? ? user_path(current_user) : '#'), class: "dropdown-item" %>
           <%= link_to 'Edit Your Account', (user_signed_in? ? edit_user_registration_path(current_user) : '#'), class: "dropdown-item" %>
-        
+          <%= link_to 'Lookup User', users_lookup_path, class: "dropdown-item" %>
+
         </div>
       </li>
     </ul>
