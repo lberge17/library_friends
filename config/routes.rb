@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :new, :create]
 
   resources :libraries, only: [:index, :new, :create, :destroy]
+
   get '/libraries/popular_books', to: 'libraries#popular_books'
 
   resources :follows, only: [:index, :create, :destroy]
+
+  get '/users/lookup', to: 'users#lookup'
 
   resources :users, only: [:show] do
     resources :recommendations, only: [:index, :show, :new, :create, :destroy]

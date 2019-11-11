@@ -33,7 +33,8 @@
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - a new book can be created from a nested form in the libraries form
 
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
+- There are validation errors listed in the books new view if the book is invalid.
 
 
 # Confirm:
