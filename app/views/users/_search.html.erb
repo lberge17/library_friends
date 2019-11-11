@@ -1,0 +1,5 @@
+<%= form_tag(users_lookup_path, class: "form-inline my-2 my-lg-0", method: :get) do %>
+    <%= text_field_tag :name, "", placeholder: "user search by name", class: "form-control mr-sm-2" %>
+    <%= text_field_tag :email, "", placeholder: "by email", class: "form-control mr-sm-2" %>
+    <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>

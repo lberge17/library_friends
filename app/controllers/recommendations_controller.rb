@@ -5,10 +5,6 @@ class RecommendationsController < ApplicationController
     def index   
         @recommendations = @user.recommendations
     end
-    
-    def show
-        redirect_to user_recommendations_path(@user) if !@recommendation
-    end
 
     def new
         @recommendation = Recommendation.new

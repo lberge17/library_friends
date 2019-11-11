@@ -2,7 +2,7 @@
     <h3>All Books</h3>
     <ul>
         <% @books.each do |book| %>
-            <li><%= link_to "#{book.title} by #{book.author}", book %></li>
+            <li><%= link_to book.title_by_author, book %></li>
         <% end %>
     </ul>
 </div>

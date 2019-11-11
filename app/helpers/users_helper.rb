@@ -8,4 +8,8 @@ module UsersHelper
             Follow.find_by(follower_id: current_user.id, following_id: user.id)
         end
     end
+
+    def current_user?(user)
+        user == current_user
+    end
 end

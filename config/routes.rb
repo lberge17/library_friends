@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/users/lookup', to: 'users#lookup'
 
   resources :users, only: [:show] do
-    resources :recommendations, only: [:index, :show, :new, :create, :destroy]
+    resources :recommendations, only: [:index, :new, :create, :destroy]
   end
   
   root to: "welcome#home"

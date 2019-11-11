@@ -10,7 +10,7 @@
             <div class="card-body">
                 <ol class="card-text">
                     <% user.recommendations.each do |rec| %>
-                        <li><%= link_to "#{rec.book.title} by #{rec.book.author}", book_path(rec.book) %></li>
+                        <li><%= link_to rec.book.title_by_author, book_path(rec.book) %></li>
                         <p><%= rec.comment %></p>
                     <% end %>
                 </ol>

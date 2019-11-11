@@ -1,8 +1,9 @@
 <h1><%= @user.name %>'s Recommendations:</h1>
+<small><%= 'To remove an item, click the red x next to the book.' if current_user?(@user) %></small>
 <div class="text-left">
     <ol>
         <% @recommendations.each do |rec| %>
-            <li><%= "#{rec.book.title} by #{rec.book.author}" %> <%= link_to('X', user_recommendation_path(@user, rec), method: "delete", class: "text-danger") if @user == current_user %></li>
+            <li><%= "#{rec.book.title} by #{rec.book.author}" %> <%= link_to('X', user_recommendation_path(@user, rec), method: "delete", class: "text-danger") if current_user?(@user) %></li>
             <p><%= rec.comment %></p>
         <% end %>
     </ol>
