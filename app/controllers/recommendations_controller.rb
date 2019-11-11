@@ -26,18 +26,6 @@ class RecommendationsController < ApplicationController
         redirect_to user_recommendations_path(current_user)
     end
 
-    def edit
-        @books = Book.all
-        if !@recommendation
-            redirect_to user_recommendations_path(@user)
-        elsif current_user != @user
-            redirect_to user_recommendation_path(@user, @recommendation)
-        end
-    end
-    
-    def update
-    end
-
     def destroy
         @recommendation.destroy if @user == current_user
         redirect_to user_recommendation_path(@user)

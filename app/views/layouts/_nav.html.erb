@@ -17,11 +17,17 @@
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href=<%= user_signed_in? ? user_recommendations_path(current_user) : '#' %>>Your Recommendations</a>
-          <a class="dropdown-item" href=<%= user_signed_in? ? new_user_recommendation_path(current_user) : '#' %>>Write new Recommendation</a>
-          <a class="dropdown-item" href=<%= user_signed_in? ? user_path(current_user) : '#'%>>Your Profile</a> 
+          
+          <%= link_to 'Your Recommendations', (user_signed_in? ? user_recommendations_path(current_user) : '#'), class: "dropdown-item" %> 
+          <%= link_to 'New Recommendation', (user_signed_in? ? new_user_recommendation_path(current_user) : '#'), class: "dropdown-item" %> 
+          <%= link_to 'Popular Books', libraries_popular_books_path, class: "dropdown-item" %>
+          <%= link_to 'All Books', books_path, class: "dropdown-item" %> 
+          
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/books">All Books</a>
+          
+          <%= link_to 'Your Profile', (user_signed_in? ? user_path(current_user) : '#'), class: "dropdown-item" %>
+          <%= link_to 'Edit Your Account', (user_signed_in? ? edit_user_registration_path(current_user) : '#'), class: "dropdown-item" %>
+        
         </div>
       </li>
     </ul>
