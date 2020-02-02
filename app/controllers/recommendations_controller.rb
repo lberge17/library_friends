@@ -2,8 +2,13 @@ class RecommendationsController < ApplicationController
     before_action :set_user
     before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
 
-    def index   
-        @recommendations = @user.recommendations
+    def index
+        if params[:book_id]
+            @book = Book.find_by(id: params[:book_id])
+            @recommendations = @book.recommendations
+        else
+            @recommendations = @user.recommendations
+        end
     end
 
     def new
@@ -30,7 +35,7 @@ class RecommendationsController < ApplicationController
     private
 
     def set_user
-        @user = User.find(params[:user_id])
+        @user = User.find(params[:user_id]) if params[:user_id]
     end
 
     def set_recommendation

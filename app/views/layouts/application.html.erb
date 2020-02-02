@@ -12,11 +12,13 @@
 
   <body>
     <%= render "layouts/nav" %>
-    <div class="container text-center">
-      <%= render "layouts/alerts" %>
-      <%= yield %>
+    <div class="main">
+      <div class="container text-center">
+        <%= render "layouts/alerts" %>
+        <%= yield %>
+      </div>
+      <br>
+      <%= render "layouts/log" %>
     </div>
-    <br>
-    <%= render "layouts/log" %>
   </body>
 </html>

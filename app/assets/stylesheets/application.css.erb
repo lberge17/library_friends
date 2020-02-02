@@ -1,0 +1,187 @@
+# /*
+#  * This is a manifest file that'll be compiled into application.css, which will include all the files
+#  * listed below.
+#  *
+#  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+#  * vendor/assets/stylesheets directory can be referenced here using a relative path.
+#  *
+#  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+#  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+#  * files in this directory. Styles in this file should be added after the last require_* statement.
+#  * It is generally better to create a new file per style scope.
+#  *
+#  *= require_tree .
+#  *= require_self
+#  */
+
+.navbar {
+   margin: 0 auto !important;
+}
+
+select {
+   background: white;
+}
+
+.session {
+   width: 50%;
+   position: absolute;
+   left: 25%;
+   right: 25%;
+   padding: 20px 0 20px 0;
+   border: 1px solid black;
+   background: rgba(0,0,0,.4);
+   color: white;
+}
+
+.session > a {
+   font-size: 1em;
+   color: white;
+   cursor: pointer;
+}
+
+.session > a:hover {
+   font-size: 1.2em;
+   color: white;
+   cursor: pointer;
+}
+
+.home > a {
+   font-size: 1.2em;
+   color: white;
+   cursor: pointer;
+}
+
+.home > a:hover {
+   font-size: 1.5em;
+   color: white;
+   cursor: pointer;
+}
+
+.home > h1 {
+   color: white;
+}
+
+body {
+   background: url(<%= asset_path 'library.jpg' %>);
+   background-color: lightblue;
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
+   margin: 0 auto !important;
+}
+
+input {
+   border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.home {
+   padding: 20px 0 20px 0;
+   background: rgba(0,0,0,.4);
+   width: 100%;
+   min-height: 60vh;
+}
+
+.logout {
+   margin: 10px;
+   background-color: #f8f9fa;
+   border: none;
+   color: black;
+   padding: 10px 20px;
+   font-size: 1em;
+   display: inline-block;
+   text-align: center;
+}
+
+.logout:hover {
+   font-size: 1.2em;
+   padding: 8px 15px;
+}
+
+.book-list > li {
+   color: white;
+   font-size: 1.2em;
+   list-style-type: square;
+   margin: 5px;
+}
+
+.book-list > p {
+   color: lightgrey;
+   font-size: 1em;
+   margin-bottom: 7px;
+   padding-left: 30px;
+}
+
+.book-list > li > a {
+   color: white;
+}
+
+small {
+   color: white;
+}
+
+.new_library {
+   margin: 40px;
+}
+
+.new_library > input {
+   width: 300px;
+}
+
+.new_recommendation {
+   margin: 40px;
+}
+
+.new_recommendation > label {
+   color: white;
+   font-size: 1.5em;
+}
+
+.new_recommendation > select, .new_recommendation > textarea, .new_recommendation > input {
+   width: 300px;
+}
+
+.pop-book-list, .pop-book-list > li > a {
+   color: white;
+   font-size: 1.2em;
+   margin: 10px;
+}
+
+.show-book > h3 {
+   margin-top: 30px;
+   color: white;
+}
+
+.show-book > p {
+   color: lightgrey;
+}
+
+.new_book {
+   margin: 30px;
+}
+
+.new_book > input {
+   width: 300px;
+}
+
+.prof-image {
+   width: 100px;
+}
+
+.search-user-btn {
+   background-color: rgba(0,0,0,.4) !important;
+}
+
+.search-user-btn:hover {
+   background-color: #28a745 !important;
+}
+
+.user-lookup-list > a {
+   color: white;
+   font-size: 1em;
+   margin-left: 20px;
+}
+
+.user-lookup-list > a:hover {
+   color: white;
+   font-size: 1.3em;
+}

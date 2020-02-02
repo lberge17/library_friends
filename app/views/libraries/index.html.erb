@@ -1,12 +1,14 @@
-<h1>Your Library</h1>
-<small>To remove an item, click the red x next to the book.</small>
+<div class="home">
+    <h1>Your Library</h1>
+    <small>To remove an item, click the red x next to the book.</small>
 
-<div class="container text-left">
-    <ul>
-        <% @user.libraries.each do |library| %>
-            <li><%= library.book.title_by_author %> <%= link_to('X', library_path(library), method: "delete", class: "text-danger")%></li><br>
-        <% end %>
-    </ul>
+    <div class="container text-left">
+        <ul class="book-list">
+            <% @user.libraries.each do |library| %>
+                <li><%= library.book.title_by_author %> <%= link_to('X', library_path(library), method: "delete", class: "text-danger")%></li><br>
+            <% end %>
+        </ul>
+    </div>
+
+    <%= link_to 'Add a new book to your library', new_library_path %>
 </div>
-
-<%= link_to 'Add a new book to your library', new_library_path %>

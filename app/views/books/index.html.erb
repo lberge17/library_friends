@@ -1,6 +1,6 @@
-<div class="container text-left">
-    <h3>All Books</h3>
-    <ul>
+<div class="container text-left home">
+    <h3 class="text-white">All Books</h3>
+    <ul class="book-list">
         <% @books.each do |book| %>
             <li><%= link_to book.title_by_author, book %></li>
         <% end %>

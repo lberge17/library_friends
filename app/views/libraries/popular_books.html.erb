@@ -1,6 +1,8 @@
-<h1>Most popular books in user libraries right now:</h1>
-<ol class="text-left">    
-    <% @books.each do |book| %>
-        <li><%= link_to book.title_by_author, book_path(book) %></li>
-    <% end %>
-</ol>
+<div class="home">
+    <h1>Most popular books in user libraries right now:</h1>
+    <ol class="text-left pop-book-list">    
+        <% @books.each do |book| %>
+            <li><%= link_to book.title_by_author, book_path(book) %></li>
+        <% end %>
+    </ol>
+</div>

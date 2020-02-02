@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
 
-  resources :books, only: [:index, :show, :new, :create]
+  resources :books, only: [:index, :show, :new, :create] do
+    resources :recommendations, only: [:index]
+  end
 
   resources :libraries, only: [:index, :new, :create, :destroy]
 
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :recommendations, only: [:index, :new, :create, :destroy]
   end
+
+  get 'users/:user_id/recommendations/:id', to: 'recommendations#show'
   
   root to: "welcome#home"
 end

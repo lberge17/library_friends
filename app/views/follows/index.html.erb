@@ -1,20 +1,22 @@
-<h1>Your Follows Feed</h1>
+<div class="home">
+    <h1>Your Follows Feed</h1>
 
-<div class="text-left">
-    <% @user.following.each do |user| %>
-        <div class="card" style=""width: 18rem;">
-            <div class="card-header">
-            <h5 class="card-title"><%= user.name %></h5>
-            <small><%= link_to 'View Profile', user_path(user) %></small>
-            </div>
-            <div class="card-body">
-                <ol class="card-text">
-                    <% user.recommendations.each do |rec| %>
-                        <li><%= link_to rec.book.title_by_author, book_path(rec.book) %></li>
-                        <p><%= rec.comment %></p>
-                    <% end %>
-                </ol>
-            </div>
-        </div><br>
-    <% end %>
+    <div class="text-left">
+        <% @user.following.each do |user| %>
+            <div class="card" style=""width: 18rem;">
+                <div class="card-header">
+                <h5 class="card-title"><%= user.name %></h5>
+                <small><%= link_to 'View Profile', user_path(user) %></small>
+                </div>
+                <div class="card-body">
+                    <ol class="card-text">
+                        <% user.recommendations.each do |rec| %>
+                            <li><%= link_to rec.book.title_by_author, book_path(rec.book) %></li>
+                            <p><%= rec.comment %></p>
+                        <% end %>
+                    </ol>
+                </div>
+            </div><br>
+        <% end %>
+    </div>
 </div>

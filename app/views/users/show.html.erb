@@ -1,19 +1,21 @@
-<h1><%= @user.name %>'s Profile</h1>
-<p>Email: <%= @user.email %></p>
-<% if @user.image %>
-    <img src=<%= @user.image %> alt="user profile picture">
-<% end %>
-<p>Followers: <%= @user.follower_count %></p>
-<p>Following: <%= @user.following_count %></p>
-
-<br>
-
-<% if @user != current_user %>
-    <%= link_to 'View this user\'s current recommendations', user_recommendations_path(@user) %>
-    <br>
-    <% if following_user?(@user) %>
-        <%= button_to "Unfollow", follow_path(find_follow(@user)), method: "delete" %>
-    <% else %>
-        <%= button_to "Follow", {controller: "follows", action: "create", :following_id => @user.id} %>
+<div class="home">
+    <h1><%= @user.name %>'s Profile</h1>
+    <p class="text-light">Email: <%= @user.email %></p>
+    <% if @user.image %>
+        <img class="prof-image" src=<%= @user.image %> alt="user profile picture">
     <% end %>
-<% end %>
+    <p class="text-light">Followers: <%= @user.follower_count %></p>
+    <p class="text-light">Following: <%= @user.following_count %></p>
+
+    <br>
+
+    <% if @user != current_user %>
+        <%= link_to 'View this user\'s current recommendations', user_recommendations_path(@user) %>
+        <br>
+        <% if following_user?(@user) %>
+            <%= button_to "Unfollow", follow_path(find_follow(@user)), method: "delete" %>
+        <% else %>
+            <%= button_to "Follow", {controller: "follows", action: "create", :following_id => @user.id} %>
+        <% end %>
+    <% end %>
+</div>

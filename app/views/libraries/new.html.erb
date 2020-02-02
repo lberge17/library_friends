@@ -1,19 +1,19 @@
-<%= form_for @library do |f| %>
-    <%= f.fields_for :book do |book_form| %>
-        <%= book_form.label :title, "Title" %>:
-        <%= book_form.text_field :title, list: 'title' %>
-        <datalist id="title">
-            <% @books.each do |book| %>
-                <option value="<%= book.title %>"></option>
-            <% end %>
-        </datalist>
-        <%= book_form.label :author, "Author" %>:
-        <%= book_form.text_field :author, list: 'author' %>
-        <datalist id="author">
-            <% @books.each do |book| %>
-                <option value="<%= book.author %>"></option>
-            <% end %>
-        </datalist>
+<div class="home">
+    <%= form_for @library do |f| %>
+        <%= f.fields_for :book do |book_form| %>
+            <%= book_form.text_field :title, list: 'title', placeholder: 'title' %>
+            <datalist id="title">
+                <% @books.each do |book| %>
+                    <option value="<%= book.title %>"></option>
+                <% end %>
+            </datalist><br>
+            <%= book_form.text_field :author, list: 'author', placeholder: 'author' %>
+            <datalist id="author">
+                <% @books.each do |book| %>
+                    <option value="<%= book.author %>"></option>
+                <% end %>
+            </datalist>
+        <% end %><br><br>
+        <%= f.submit %>
     <% end %>
-    <%= f.submit %>
-<% end %>
+</div>
